@@ -273,11 +273,6 @@ Demonstrates proper cleanup of processes with no zombie processes remaining afte
 
 ---
 
-### Note
-
-Advanced features such as supervisor-based container management, resource limit enforcement, and scheduling experiments were not implemented in this version. The focus of this project is on core process management, logging, and kernel interaction.
-
----
 
 ## 4. Engineering Analysis
 
