@@ -140,3 +140,129 @@ The system successfully demonstrates:
 * Memory monitoring using dmesg
 
 ---
+
+## 3. Demo with Screenshots
+
+The following screenshots demonstrate the functionality of the implemented container runtime and kernel monitoring system.
+
+---
+
+### 3.1 Multi-container execution
+
+**Commands used:**
+
+./engine
+cmd> start
+cmd> start
+cmd> list
+
+**Description:**
+This demonstrates multiple containers running simultaneously and being tracked using container IDs and process IDs.
+
+**Screenshot:**
+<img width="1600" height="135" alt="WhatsApp Image 2026-04-17 at 6 23 05 AM(1)" src="https://github.com/user-attachments/assets/2c3518ba-4150-40ba-93b7-81f5155c4e1f" />
+
+
+---
+
+### 3.2 Metadata tracking
+
+**Commands used:**
+
+cmd> list
+
+**Description:**
+Displays metadata of active containers including their IDs and PIDs.
+
+**Screenshot:**
+*(Insert screenshot here)*
+
+---
+
+### 3.3 Logging using pipes
+
+**Commands used:**
+
+cmd> start
+
+**Description:**
+Shows container output captured using pipe-based logging, with each output labeled by container ID.
+
+**Screenshot:**
+*(Insert screenshot here)*
+
+---
+
+### 3.4 CLI interaction and container control
+
+**Commands used:**
+
+cmd> start
+cmd> list
+cmd> stop 0
+cmd> exit
+
+**Description:**
+Demonstrates command-line interface interaction and control over container lifecycle.
+
+**Screenshot:**
+*(Insert screenshot here)*
+
+---
+
+### 3.5 Kernel module loading
+
+**Commands used:**
+
+sudo insmod monitor.ko
+lsmod | grep monitor
+
+**Description:**
+Verifies that the kernel module is successfully loaded into the system.
+
+**Screenshot:**
+*(Insert screenshot here)*
+
+---
+
+### 3.6 Kernel memory monitoring
+
+**Commands used:**
+
+./engine
+cmd> start
+cmd> exit
+
+sudo dmesg | tail
+
+**Description:**
+Shows memory usage of a container retrieved from the kernel module using ioctl and displayed via dmesg.
+
+**Screenshot:**
+*(Insert screenshot here)*
+
+---
+
+### 3.7 Clean termination
+
+**Commands used:**
+
+cmd> stop 0
+cmd> exit
+
+ps aux | grep engine
+
+**Description:**
+Demonstrates proper cleanup of processes with no zombie processes remaining after execution.
+
+**Screenshot:**
+*(Insert screenshot here)*
+
+---
+
+### Note
+
+Advanced features such as supervisor-based container management, resource limit enforcement, and scheduling experiments were not implemented in this version. The focus of this project is on core process management, logging, and kernel interaction.
+
+---
+
