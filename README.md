@@ -207,8 +207,10 @@ cmd> exit
 Demonstrates command-line interface interaction and control over container lifecycle.
 
 **Screenshot:**
-<img width="566" height="134" alt="WhatsApp Image 2026-04-17 at 6 23 21 AM" src="https://github.com/user-attachments/assets/bec7e249-7687-4066-80ca-d0f3d9885526" />
-<img width="566" height="134" alt="WhatsApp Image 2026-04-17 at 6 23 21 AM" src="https://github.com/user-attachments/assets/5819b7c4-ddd1-4500-bbf1-96938c54596b" />
+
+<img width="566" height="134" alt="WhatsApp Image 2026-04-17 at 6 23 21 AM" src="https://github.com/user-attachments/assets/9a0b0f39-ba5f-45fd-bd22-ffe9425dd10a" />
+
+<img width="431" height="88" alt="WhatsApp Image 2026-04-17 at 6 23 37 AM" src="https://github.com/user-attachments/assets/63a597a4-9bc2-4875-a0de-6d77459d7297" />
 
 
 ---
@@ -224,7 +226,9 @@ lsmod | grep monitor
 Verifies that the kernel module is successfully loaded into the system.
 
 **Screenshot:**
-*(Insert screenshot here)*
+
+<img width="1600" height="720" alt="image" src="https://github.com/user-attachments/assets/9ff7e606-8271-4d3b-9798-ee994192c748" />
+
 
 ---
 
@@ -242,7 +246,8 @@ sudo dmesg | tail
 Shows memory usage of a container retrieved from the kernel module using ioctl and displayed via dmesg.
 
 **Screenshot:**
-*(Insert screenshot here)*
+<img width="1479" height="766" alt="image" src="https://github.com/user-attachments/assets/a421a4fa-2f1c-473c-9ed2-dfa41bfc76db" />
+
 
 ---
 
@@ -259,7 +264,12 @@ ps aux | grep engine
 Demonstrates proper cleanup of processes with no zombie processes remaining after execution.
 
 **Screenshot:**
-*(Insert screenshot here)*
+
+<img width="589" height="91" alt="image" src="https://github.com/user-attachments/assets/008129ca-b3ac-488d-ba06-c4bc832f5cc0" />
+
+
+<img width="1546" height="87" alt="image" src="https://github.com/user-attachments/assets/b61d84b1-8f1f-43f9-8086-a2fe54f766d3" />
+
 
 ---
 
