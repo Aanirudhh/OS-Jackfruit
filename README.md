@@ -279,3 +279,85 @@ Advanced features such as supervisor-based container management, resource limit 
 
 ---
 
+## 4. Engineering Analysis
+
+This project demonstrates key operating system concepts through the implementation of a lightweight container runtime and kernel monitoring module.
+
+### Process Creation and Isolation
+
+The system uses `fork()` to create a new process and `exec()` to run a program inside the container. This reflects how operating systems create isolated execution environments. Although full namespace isolation is not implemented, each container runs as an independent process with its own PID.
+
+### Inter-Process Communication (IPC)
+
+Pipes are used to capture output from child processes and redirect it to the parent. This demonstrates a producer-consumer model where the child produces output and the parent consumes and displays it. This mechanism ensures organized logging of multiple containers.
+
+### Signal Handling
+
+The use of `SIGCHLD` ensures that terminated child processes are properly reaped using `waitpid()`. This prevents zombie processes, which is a critical responsibility of the operating system in process lifecycle management.
+
+### User-Kernel Interaction
+
+The project uses `ioctl` to enable communication between user-space (engine) and kernel-space (monitor module). The kernel module retrieves memory usage of a process and logs it using `printk`, demonstrating how user applications interact with kernel services.
+
+### Resource Monitoring
+
+The kernel module uses internal kernel structures (`task_struct` and memory management fields) to compute memory usage. This reflects how operating systems track and manage resource utilization of processes.
+
+---
+
+## 5. Design Decisions and Tradeoffs
+
+### Container Management (No Supervisor Model)
+
+* **Design Choice:** A simple CLI-based container runtime without a supervisor process was implemented.
+* **Tradeoff:** Lacks advanced features like centralized monitoring and control of containers.
+* **Justification:** This simplifies implementation while still demonstrating core process management concepts.
+
+### IPC and Logging
+
+* **Design Choice:** Pipes were used to capture container output.
+* **Tradeoff:** Limited scalability for large-scale logging systems.
+* **Justification:** Pipes are lightweight and sufficient for demonstrating inter-process communication clearly.
+
+### Kernel Monitoring via ioctl
+
+* **Design Choice:** Used `ioctl` for communication between user-space and kernel-space.
+* **Tradeoff:** Requires manual device interaction and is less flexible than newer interfaces.
+* **Justification:** `ioctl` provides a straightforward way to demonstrate user-kernel interaction.
+
+### Lack of Namespace Isolation
+
+* **Design Choice:** Did not implement namespaces or cgroups.
+* **Tradeoff:** Containers are not fully isolated like real container systems.
+* **Justification:** The focus of the project is on process control and kernel interaction rather than full containerization.
+
+### Signal-Based Cleanup
+
+* **Design Choice:** Used `SIGCHLD` to clean up child processes.
+* **Tradeoff:** Requires careful handling to avoid missed signals.
+* **Justification:** Efficient and standard method for preventing zombie processes.
+
+---
+
+## 6. Scheduler Experiment Results
+
+This implementation does not include explicit scheduling experiments or custom scheduling policies. However, observations can be made based on running multiple workloads.
+
+### Observations
+
+* When multiple containers are started simultaneously, the Linux scheduler distributes CPU time among processes.
+* CPU-intensive workloads (e.g., `cpu_hog`) consume more CPU cycles compared to I/O-bound workloads.
+* The system remains responsive due to the fairness of the default Linux scheduler.
+
+### Example Behavior
+
+* Running multiple containers shows interleaved execution of outputs.
+* No single process completely starves others, indicating fair scheduling.
+
+### Conclusion
+
+The results demonstrate that the Linux scheduler effectively manages multiple processes by balancing CPU allocation. Even without custom scheduling, the system ensures fairness and responsiveness across workloads.
+
+---
+
+
