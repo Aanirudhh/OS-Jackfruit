@@ -175,7 +175,8 @@ cmd> list
 Displays metadata of active containers including their IDs and PIDs.
 
 **Screenshot:**
-*(Insert screenshot here)*
+<img width="566" height="134" alt="WhatsApp Image 2026-04-17 at 6 23 21 AM" src="https://github.com/user-attachments/assets/20dd279c-2da5-41b2-b164-6e3aa26dfe48" />
+
 
 ---
 
@@ -189,7 +190,8 @@ cmd> start
 Shows container output captured using pipe-based logging, with each output labeled by container ID.
 
 **Screenshot:**
-*(Insert screenshot here)*
+<img width="944" height="639" alt="image" src="https://github.com/user-attachments/assets/5838ff86-f067-4bb5-916f-ef1804640acf" />
+
 
 ---
 
@@ -197,7 +199,6 @@ Shows container output captured using pipe-based logging, with each output label
 
 **Commands used:**
 
-cmd> start
 cmd> list
 cmd> stop 0
 cmd> exit
@@ -206,7 +207,9 @@ cmd> exit
 Demonstrates command-line interface interaction and control over container lifecycle.
 
 **Screenshot:**
-*(Insert screenshot here)*
+<img width="566" height="134" alt="WhatsApp Image 2026-04-17 at 6 23 21 AM" src="https://github.com/user-attachments/assets/bec7e249-7687-4066-80ca-d0f3d9885526" />
+<img width="566" height="134" alt="WhatsApp Image 2026-04-17 at 6 23 21 AM" src="https://github.com/user-attachments/assets/5819b7c4-ddd1-4500-bbf1-96938c54596b" />
+
 
 ---
 
