@@ -44,7 +44,7 @@ lsmod | grep monitor
 
 ---
 
-### Step 5: Run the Container Runtime
+### Step 5: Start the Container Runtime
 
 ./engine
 
@@ -61,10 +61,21 @@ cmd> exit       # Exit the runtime
 
 ---
 
-### Step 7: Run Workloads
+### Step 7: Example Run Sequence
 
-Containers execute programs using exec().
-You can modify the program inside engine.c to run:
+cmd> start
+cmd> start
+cmd> list
+cmd> stop 0
+cmd> list
+cmd> exit
+
+---
+
+### Step 8: Run Workloads
+
+By default, containers execute programs using exec().
+You can modify engine.c to run:
 
 * ./cpu_hog
 * ./memory_hog
@@ -72,7 +83,7 @@ You can modify the program inside engine.c to run:
 
 ---
 
-### Step 8: View Memory Usage (Kernel Output)
+### Step 9: View Memory Usage (Kernel Output)
 
 sudo dmesg | tail
 
@@ -82,13 +93,13 @@ PID 4168 memory: 159744 bytes
 
 ---
 
-### Step 9: Unload Kernel Module
+### Step 10: Unload Kernel Module
 
 sudo rmmod monitor
 
 ---
 
-### Step 10: Clean Build Files
+### Step 11: Clean Build Files
 
 make clean
 
@@ -101,11 +112,11 @@ make clean
 * Use sudo for kernel-related commands
 * The system demonstrates:
 
-  * Process creation (fork + exec)
-  * Container management
-  * Inter-process communication (pipes)
-  * Signal handling
-  * Kernel module interaction via ioctl
+  * Process creation using fork() and exec()
+  * Container management using IDs and PIDs
+  * Inter-process communication using pipes
+  * Signal handling to prevent zombie processes
+  * Kernel module interaction using ioctl
 
 ---
 
@@ -114,3 +125,18 @@ make clean
 * engine.c → User-space container runtime
 * monitor.c → Kernel module for memory monitoring
 * Makefile → Build system
+
+---
+
+## Output Summary
+
+The system successfully demonstrates:
+
+* Creation and execution of containers
+* Management of multiple containers
+* CLI-based interaction
+* Logging of container outputs
+* Kernel module loading and unloading
+* Memory monitoring using dmesg
+
+---
